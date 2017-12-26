@@ -9,7 +9,7 @@ import sys
 import numpy as np
 from scipy.optimize import curve_fit
 from scipy.optimize import minimize
-from jupyterhack.MyGraph import MyGraphWindow
+from coatl.Graph import MyGraphWindow
 
 ##############################################
 #differential

@@ -14,7 +14,6 @@ from PyQt5.QtGui import QColor,QStandardItem,QStandardItemModel,QFont
 
 import coatl.Tree as MyTree
 from coatl.Graph import MyGraphWindow
-from coatl.Help import helpText
 
 NAME=0
 TYPE=1
@@ -63,19 +62,6 @@ class MyTreeWidget(QMainWindow):
         self.initUI()
         
     def initUI(self):
-        #add Toolbar
-        toolbar=QToolBar()
-        helpAction=QAction('help',self)
-        helpAction.triggered.connect(self.showHelp)
-        toolbar.addAction(helpAction)
-        self.addToolBar(toolbar)
-        style='''
-
-            background-color:rgb(230,230,230);
-            border-color: gray;
-            '''
-        #self.setStyleSheet(style)
-        
         button_style='''
                     QPushButton {background-color: rgb(39,105,195);
                                  border-style: none;
@@ -112,18 +98,6 @@ class MyTreeWidget(QMainWindow):
         
     def __reduce_ex__(self,proto):
         return geneMyTreeWidget,(self.setview,)
-    
-    def showHelp(self):
-        try:
-            self.text.showNormal()
-        except:
-            self.text=QTextEdit()
-            self.text.setGeometry(500, 45, 800, 974)
-            self.text.setWindowTitle('Help')
-            self.text.setFont(QFont('TimesNewRoman',12))
-            self.text.setHtml(helpText)
-            self.text.setReadOnly(True)
-            self.text.show()
         
     def save(self,other=False):
         if other: #self.filepath以外の保存先を指定する場合
@@ -150,6 +124,13 @@ class MyTreeWidget(QMainWindow):
         self.cur=mylist[0]
 
     def get_dependencies(self):
+        '''
+        Return the versions of packages whose classes are contained in self
+        
+        Returns:
+            dict
+        '''
+        
         return self.root.get_dependencies()
         
     def do_same(self,function):

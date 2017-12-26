@@ -11,7 +11,7 @@ import pandas as pd
 from PyQt5.QtCore import pyqtSignal,QObject
 from PyQt5.QtWidgets import QApplication,QWidget,QFileDialog
 
-from coatl.MyGraph import MyGraphWindow
+from coatl.Graph import MyGraphWindow
 
 def transformMyTree(mytree,parent=None):
     #MyTreeをMyTreeRawに変換する pickleのため
@@ -371,8 +371,6 @@ class MyRootTree(MyTree):
                 dependencies[m_name]=version
             except:
                 pass
-        #add matplotlib version info cause coatl implicitly uses it
-        dependencies['matplotlib']=get_distribution('matplotlib').version
         return dependencies
         
 if __name__=='__main__':

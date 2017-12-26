@@ -19,6 +19,17 @@ from PyQt5.QtGui import QColor
 
 import numpy as np
 
+#Default graph setting
+plt.rcParams['font.family'] ='sans-serif'
+plt.rcParams['xtick.direction'] = 'in'
+plt.rcParams['ytick.direction'] = 'in'
+plt.rcParams['xtick.top']=True
+plt.rcParams['ytick.right']=True
+plt.rcParams['xtick.major.width'] = 1.0
+plt.rcParams['ytick.major.width'] = 1.0
+plt.rcParams['font.size'] = 14 #フォントの大きさ
+plt.rcParams['axes.linewidth'] = 1.0# 軸の線幅edge linewidth。囲みの太さ
+
 ##########################################################
 #グラフウィンドウ
 ##########################################################
